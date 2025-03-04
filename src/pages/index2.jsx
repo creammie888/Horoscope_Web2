@@ -10,6 +10,7 @@ function Index2(){
             <p>ตั้งใจอธิษฐานนะ แล้วไปกันต่อเลย</p>
             <button className="btn" onClick={() => navigate('/pick')}>ไปกันต่อ</button>
         </div>
+
     )
 }
 

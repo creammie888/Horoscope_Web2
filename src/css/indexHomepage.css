@@ -7,8 +7,18 @@
     margin: 20px;
     display: block;
     text-align: center;
+    background-color: #FFF;
+    color: black;
 }
 
 .container1 p {
+    margin: 30px;
     font-size: 1.3em;
+    text-align: center;
+    color: #FFF;
+    text-shadow: 
+        0 0 5px black,
+        0 0 10px black,
+        0 0 15px black,
+        0 0 20px black;
 }

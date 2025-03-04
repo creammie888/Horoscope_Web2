@@ -8,23 +8,15 @@
 
 body {
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     font-family: 'IBM Plex Sans Thai';
-    background-image: url(../../public/temp/bg1.JPG);
+    background-image: url(../../public/temp/BG.png);
     background-size: cover;
-    
     color: #2a2a2a;
-
-    /* background: radial-gradient(circle at 30% 20%, #D7C5B0 5%, rgba(179, 160, 133, 1) 40%),
-    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.15) 30%, #D7C5B0 90%),
-    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.1) 30%, #D7C5B0 90%),
-    linear-gradient(to bottom, #b3a085, #a0917a);
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative; */
 
 }
 
@@ -116,6 +108,9 @@ body {
 
     
 }
+.card:hover {
+    transform: rotateY(180deg);
+}
 
 .front {
     transform: rotateY(0deg);
@@ -183,4 +178,22 @@ body {
     font-size: 0.7em;
     color: #2a2a2a;
 }
+
+@keyframes move-in {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+  
+  @keyframes move-out {
+    from {
+      transform: translateY(0%);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
 

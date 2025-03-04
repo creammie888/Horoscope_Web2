@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Result from './pages/result';
 import Index1 from './pages/index1';
 import Index2 from './pages/index2';
-import TarotCard from './pages/torotcards';
+import Pick from './pages/pick';
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Index1 />} />
           <Route path="/wish" element={<Index2 />} />
-          <Route path="/pick" element={<TarotCard />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/pick" element={<Pick />} />
         </Routes>
       </main>
     </Router>
