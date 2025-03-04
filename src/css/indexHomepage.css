@@ -1,0 +1,14 @@
+.btn {
+    width: 150px;
+    height: 45px;
+    font-size: 1em;
+    border: none;
+    border-radius: 40px;
+    margin: 20px;
+    display: block;
+    text-align: center;
+}
+
+.container1 p {
+    font-size: 1.3em;
+}
