@@ -18,7 +18,7 @@ function Result() {
                 ความสดใสในวันนี้ของคุณ!
             </h1>
 
-            {/* <div className='curve-box'></div> */}
+            <div className='curve-box'></div>
 
             <div className="container" onClick={handleClick}>
                 <div className={`card ${clicked ? 'clicked' : ''}`}>
