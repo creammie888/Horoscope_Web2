@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'IBM Plex Sans Thai';
+
+}
+
+.result {
+    height: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+
+
+.container {
+    width: 170px;
+    height: 280px;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    transform: rotateY(180deg);
+  
+}
+
+.front ,.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+
+    
+}
+
+.front {
+    transform: rotateY(0deg);
+    
+}
+.back {
+    transform: rotateY(180deg);
+}
+
+.front img , .back img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.card.clicked{
+    transform: rotateY(0deg);
+}
+
+.prediction {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 20px;
+}
+
+.prediction.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.definition {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px;
+
+}
+
+.box {
+    background-color: #B09C80;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+
+}
+
