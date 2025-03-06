@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: "*",  // หรือใส่เป็น "https://your-frontend.onrender.com"
+  origin: "https://horoscope-frontend-g223.onrender.com", // ใส่ URL ที่ถูกต้อง
   methods: ["GET", "POST"]
 }));
 app.use(express.json());
@@ -19,7 +19,7 @@ const db = mysql.createPool({
   port: process.env.DB_PORT,
   waitForConnections: true,
   queueLimit: 0,
-  ssl: { rejectUnauthorized: false }
+  // ssl: { rejectUnauthorized: false }
 
   // authPlugins: {
   //   mysql_native_password: true,
