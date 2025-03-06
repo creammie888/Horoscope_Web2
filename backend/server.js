@@ -54,6 +54,11 @@ app.get("/api/tarot", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
+
 
 
 const PORT = process.env.SERVER_PORT || 5001;
