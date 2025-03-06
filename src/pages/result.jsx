@@ -8,7 +8,7 @@ function Result() {
     const [clicked, setClicked] = useState(false);  // สร้าง state สำหรับการคลิก
     const [showPrediction, setShowPrediction] = useState(false); // สร้าง state สำหรับการแสดง prediction
     const [card, setCard] = useState(null);
-    const BASE_URL = process.env.REACT_APP_API_URL;
+    const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
 
     const handleClick = async () => {
       if (!clicked) {
@@ -17,7 +17,7 @@ function Result() {
         try {
             console.log("API URL:", BASE_URL);
 
-            const response = await axios.get(`${BASE_URL}/api/tarot`); // ดึงข้อมูลจาก Backend
+            const response = await axios.get(`${BASE_URL}`); // ดึงข้อมูลจาก Backend
             setCard(response.data);
             console.log("Tarot Card Data:", response.data);  // Debug ค่า API
         } catch (error) {
