@@ -4,7 +4,10 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",  // หรือใส่เป็น "https://your-frontend.onrender.com"
+  methods: ["GET", "POST"]
+}));
 app.use(express.json());
 
 const db = mysql.createPool({
