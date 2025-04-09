@@ -8,8 +8,8 @@ function Result() {
     const [clicked, setClicked] = useState(false);
     const [showPrediction, setShowPrediction] = useState(false);
     const [card, setCard] = useState(null);
-    const BASE_URL = "http://localhost:3001/api/tarot";
-    // const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
+    // const BASE_URL = "http://localhost:3001/api/tarot";
+    const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
 
     const handleClick = async () => {
       if (!clicked) {
