@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'IBM Plex Sans Thai';
     background-image: url(../../public/temp/BG.png);
     background-size: cover;
@@ -23,11 +23,11 @@ body {
 
 
 .result {
+    height: 100%;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
 
 }
 
@@ -48,8 +48,7 @@ body {
     justify-content: center;
     flex-direction: column;
     transition: height 1s ease-in-out, width 1s ease-in-out;
-    padding-bottom: 100px;
-    overflow-y: auto;
+    padding-bottom: 40px;
     
 }
 
