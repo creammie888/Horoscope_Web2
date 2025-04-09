@@ -21,7 +21,7 @@ body {
 }
 
 .result {
-    height: 100vh;
+    height: 110vh;
     max-width: 600px;
     display: flex;
     flex-direction: column;
