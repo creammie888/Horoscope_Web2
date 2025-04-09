@@ -43,6 +43,26 @@ const Pick = () => {
     animateInertia(); // เรียกใช้ Inertia Effect
   };
 
+  // เพิ่มฟังก์ชันสำหรับ Touch
+const handleTouchStart = (e) => {
+  dragStart.current = e.touches[0].clientX;
+  isDragging.current = true;
+  velocity.current = 0;
+};
+
+const handleTouchMove = (e) => {
+  if (!isDragging.current) return;
+  const delta = (e.touches[0].clientX - dragStart.current) * smoothFactor;
+  velocity.current = delta;
+  dragStart.current = e.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  isDragging.current = false;
+  animateInertia();
+};
+
+
   // ฟังก์ชันทำให้หมุนสมูทขึ้น
   const animateInertia = () => {
     if (!isDragging.current) {
@@ -69,7 +89,13 @@ const Pick = () => {
 
   return (
     <div className="pick-container">
-      <div className="drag-area" onMouseDown={handleMouseDown}></div>
+      <div
+        className="drag-area"
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      />
       <div className="drag-text">
         <h1>เลือกไพ่เลย 1 ใบ</h1>
         <p>[เลื่อนเพื่อเลือกไพ่]</p>

@@ -5,9 +5,10 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: "https://horoscope-frontend-g223.onrender.com", // ใส่ URL ที่ถูกต้อง
+  origin: ["http://localhost:3000", "https://horoscope-frontend-g223.onrender.com"],
   methods: ["GET", "POST"]
 }));
+
 app.use(express.json());
 
 const db = mysql.createPool({
@@ -26,14 +27,14 @@ const db = mysql.createPool({
   // },
 });
 
-// ✅ เชื่อมต่อ MySQL
+// เชื่อมต่อ MySQL
 db.getConnection((err, connection) => {
   if (err) {
-    console.error("❌ Database connection failed:", err.stack);
+    console.error("Database connection failed:", err.stack);
     return;
   }
-  console.log("✅ Connected to MySQL on Railway!");
-  connection.release(); // ปิด Connection หลังจากเชื่อมต่อสำเร็จ
+  console.log("Connected to MySQL on Railway!");
+  connection.release();
 });
 
 
@@ -43,7 +44,7 @@ app.get("/tarot_cards", (req, res) => {
     if (err) {
       return res.status(500).json({ error: err });
     }
-    console.log(results); // เพิ่มบรรทัดนี้เพื่อตรวจสอบข้อมูลใน Terminal
+    console.log(results);
     res.json(results);
   });
 });
@@ -53,7 +54,7 @@ app.get("/api/tarot", (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
-    res.json(results[0]);  // ส่งข้อมูลไพ่ Tarot กลับไปที่ Frontend
+    res.json(results[0]);
   });
 });
 
@@ -64,7 +65,7 @@ app.get("/", (req, res) => {
 
 
 
-const PORT = process.env.SERVER_PORT || 5001;
+const PORT = process.env.SERVER_PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

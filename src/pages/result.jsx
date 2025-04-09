@@ -5,31 +5,28 @@ import axios from 'axios';
 function Result() {
 
     const navigate = useNavigate();
-    const [clicked, setClicked] = useState(false);  // สร้าง state สำหรับการคลิก
-    const [showPrediction, setShowPrediction] = useState(false); // สร้าง state สำหรับการแสดง prediction
+    const [clicked, setClicked] = useState(false);
+    const [showPrediction, setShowPrediction] = useState(false);
     const [card, setCard] = useState(null);
-    const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
+    const BASE_URL = "http://localhost:3001/api/tarot";
+    // const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
 
     const handleClick = async () => {
       if (!clicked) {
-        setClicked(!clicked);  // เปลี่ยนสถานะเมื่อคลิก
+        setClicked(!clicked);
         setShowPrediction(true);
         try {
             console.log("API URL:", BASE_URL);
 
-            const response = await axios.get(`${BASE_URL}`); // ดึงข้อมูลจาก Backend
+            const response = await axios.get(`${BASE_URL}`);
             setCard(response.data);
-            console.log("Tarot Card Data:", response.data);  // Debug ค่า API
+            console.log("Tarot Card Data:", response.data);
         } catch (error) {
             console.error("Error fetching tarot card:", error);
         }
       }
     };
 
-    // const handleReset = () => {
-    //     setClicked(false);  // รีเซ็ตไพ่ให้กลับไปเป็นเหมือนตอนแรก
-    //     setShowPrediction(false); // ซ่อนคำทำนาย
-    // };
 
     return (
         <div className='result'>
@@ -57,7 +54,7 @@ function Result() {
                                     <div className='box'>{card?.keyword4 || "..."}</div>
                                 </div>
                                 <div className='description'>
-                                <p>{card?.meaning || "ไม่มีคำอธิบาย"}</p>
+                                <p>{card?.meaning || "กำลังโหลด..."}</p>
                                 </div>
                                 <button id='pick-again' onClick={() => navigate('/wish')}>
                                     <p>ดูอีกครั้ง</p>

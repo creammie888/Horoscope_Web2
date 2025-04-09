@@ -1,4 +1,4 @@
-import Reactx from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 function Index2(){
