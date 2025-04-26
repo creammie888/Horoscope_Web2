@@ -42,7 +42,7 @@ body {
 .curve-box {
     width: 100%;
     height: 50%;
-    background-color: #FFF;
+    background-color: #ffcce0;
     display: flex;
     position: relative;
     border-radius: 300px 300px 0px 0px;
