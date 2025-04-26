@@ -41,9 +41,8 @@ body {
 
 .curve-box {
     width: 100%;
-    min-height: 50%;
-    max-height: 80vh;
-    background-color: #2a2a2a;
+    height: 50%;
+    background-color: #FFF;
     display: flex;
     position: relative;
     border-radius: 300px 300px 0px 0px;
@@ -51,12 +50,13 @@ body {
     flex-direction: column;
     transition: height 1s ease-in-out, width 1s ease-in-out;
     padding-bottom: 40px;
-    padding: 20px 0 80px 0;
     
 }
 
 .curve-box.expanded {
     height: 60%;
+    max-height: 80vh;
+    padding: 20px 0 80px 0;
 }
 
 .info {
