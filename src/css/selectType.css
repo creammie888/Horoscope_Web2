@@ -163,14 +163,9 @@
 
 @media (max-width: 739px) {
 
-    .select-card-box {
+    .select-card-box ,.select-card-box:hover{
         width: 125px;
         height: 200px;
-    }
-
-    .select-card-box:hover {
-        width: calc(125px*1.2);
-        height: calc(200px*1.2);
     }
 
 }
@@ -186,15 +181,10 @@
         padding: 10px;
     }
 
-    .select-card {
+    .select-card,.select-card:hover  {
         width: 38vw;
         height: 53vw;
         margin-top: 10px;
-    }
-
-    .select-card:hover {
-        width: 40vw;
-        height: 55vw;
     }
 
     .btn-select h3 {
