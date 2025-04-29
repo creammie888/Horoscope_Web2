@@ -1,6 +1,4 @@
-
-
-.select-container {
+.select-container, .select-container-tarot {
     display: flex;
     gap: 30px;
     padding: 30px;
@@ -28,8 +26,6 @@
     height: 100%;
     border-radius: 10%;
     border: none;
-    /* background-color: #2a2a32; */
-    /* background: linear-gradient(0deg, #00000000, #1a1a1a00, #515258); */
     background: linear-gradient(0deg, #00000000, #2b2c37);
     display: flex;
     flex-direction: column;
@@ -50,7 +46,7 @@
 .btn-select h3 {
     font-size: 20px;
     font-weight: 600;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .btn-select p {
@@ -114,11 +110,6 @@
     justify-content: center;
 }
 
-.btn-select-tarot p , .btn-select-tarot h3{
-    color: white;
-    text-shadow: none;
-}
-
 .btn-select-tarot img {
     width: 100%;
     height: 100%;
@@ -163,28 +154,35 @@
 
 @media (max-width: 739px) {
 
-    .select-card-box ,.select-card-box:hover{
+    .select-card-box {
         width: 125px;
         height: 200px;
+    }
+
+    .select-card-box:hover ,.select-card-box:first-child:hover,.select-card-box:last-child:hover {
+        width: 125px;
+        height: 200px;
+        transform:none;
     }
 
 }
 
 @media (max-width: 589px) {
 
-    .select-container{
-        gap: 10px;
-    }
-
-    .select-container-tarot{
+    .select-container {
         gap: 10px;
         padding: 10px;
+        padding-bottom: 20px;
     }
 
-    .select-card,.select-card:hover  {
+    .select-card {
         width: 38vw;
         height: 53vw;
-        margin-top: 10px;
+    }
+
+    .select-card:hover {
+        width: 38vw;
+        height: 53vw;
     }
 
     .btn-select h3 {
@@ -200,7 +198,15 @@
         color: white;
     }
 
+    .select-card:last-child:hover, .select-card:first-child:hover {
+        transform: none;
+    }
 
+    .select-card:last-child:hover img, .select-card:first-child:hover img {
+        width: 70%;
+        height: 70%;
+        transform: none;
+    }
 
 }
 

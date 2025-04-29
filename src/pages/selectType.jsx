@@ -13,7 +13,7 @@ function Type() {
     return (
         <div className="container1">
             <p>ค้นหาคำตอบของใจคุณ <br /><span>ด้วยวิธีที่ใช่..</span></p>
-            <div className="select-container">
+            <div className="select-container-tarot">
             <div className="select-card">
                 <button className="btn-select" onClick={() => {
                     buttonClickSound();

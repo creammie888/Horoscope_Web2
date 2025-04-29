@@ -13,7 +13,7 @@ function TarotType() {
     return (
         <div className="container1">
             <p><span>เริ่มต้นวันด้วยพลังดีๆ</span> <br />เลือกหัวข้อที่คุณอยากรู้ แล้วมาลุ้นคำทำนายไปด้วยกัน!</p>
-            <div className="select-container-torot">
+            <div className="select-container">
                 <div className="select-card-box">
                     <button className="btn-select-tarot" onClick={() => {
                         buttonClickSound();
