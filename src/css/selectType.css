@@ -162,6 +162,7 @@
 
 
 @media (max-width: 739px) {
+
     .select-card-box {
         width: 125px;
         height: 200px;
@@ -171,6 +172,40 @@
         width: calc(125px*1.2);
         height: calc(200px*1.2);
     }
+
+}
+
+@media (max-width: 589px) {
+
+    .select-container {
+        gap: 20px;
+    }
+
+    .select-card {
+        width: 38vw;
+        height: 53vw;
+        margin-top: 10px;
+    }
+
+    .select-card:hover {
+        width: 40vw;
+        height: 55vw;
+    }
+
+    .btn-select h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    
+    .btn-select p {
+        font-size: 10px;
+        font-weight: 300;
+        margin-top: 10px;
+        color: white;
+    }
+
+
 
 }
 
