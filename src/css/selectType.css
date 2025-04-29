@@ -167,6 +167,11 @@
         height: 200px;
     }
 
+    .select-card-box:hover {
+        width: calc(125px*1.2);
+        height: calc(200px*1.2);
+    }
+
 }
 
 
