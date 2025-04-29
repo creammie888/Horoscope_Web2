@@ -6,6 +6,10 @@ import Pick from './pages/pick';
 import Type from './pages/selectType';
 import TarotType from './pages/selectTypeofTarot';
 import Sticks from './pages/fortuneSticks';
+import LovePage from './pages/lovePage';
+import PickType from './pages/pickType';
+import WorkPage from './pages/workPage';
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
           <Route path="/selectType" element={<Type />} />
           <Route path="/selectTypeofTarot" element={<TarotType />} />
           <Route path="/fortuneSticks" element={<Sticks />} />
+          <Route path="/tarotofLove" element={<LovePage />} />
+          <Route path="/picktarot" element={<PickType />} />
+          <Route path="/picktarotofWorkandStudy" element={<WorkPage />} />
         </Routes>
       </main>
     </Router>

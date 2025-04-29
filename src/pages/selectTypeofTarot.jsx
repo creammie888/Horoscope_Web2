@@ -15,12 +15,12 @@ function TarotType() {
                     </button>
                 </div>
                 <div className="select-card-box">
-                    <button className="btn-select-tarot" onClick={() => navigate('/wish')}>
+                    <button className="btn-select-tarot" onClick={() => navigate('/tarotofLove')}>
                         <img src="/temp/love.png" alt="tarot" />
                     </button>
                 </div>
                 <div className="select-card-box">
-                    <button className="btn-select-tarot" onClick={() => navigate('/wish')}>
+                    <button className="btn-select-tarot" onClick={() => navigate('/picktarotofWorkandStudy')}>
                         <img src="/temp/work.png" alt="fortune-sticks" />
                     </button>
                 </div>
