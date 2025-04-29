@@ -9,8 +9,8 @@ function Index1(){
     return (
         <div className="container1">
             <div className="text"></div>
-            <p>เริ่มต้นวันใหม่ด้วยรอยยิ้ม และค้นพบความสงบในใจมีโชคดีรอคุณอยู่</p>
-            <button className="btn" onClick={() => navigate('/wish')}>เริ่มต้น</button>
+            <p>เริ่มต้นวันใหม่ด้วย<span>รอยยิ้ม</span> และค้นพบความสงบในใจ <span>มีโชคดีรอคุณอยู่</span></p>
+            <button className="btn" onClick={() => navigate('/selectType')}>เริ่มต้น</button>
         </div>
     )
 }
