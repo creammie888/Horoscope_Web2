@@ -69,10 +69,12 @@ function Result() {
             </div>
             ) : (
             <div className={`background-box ${animate ? 'slide-in' : ''}`}>
-                    <div className={`curve-box ${clicked ? 'expanded' : ''}`}>
-                        <div className={`info ${clicked ? 'expanded' : ''}`}>
+                    <div className="curve-box">
+                        <div className="info">
                             <h1>ความสดใสในวันนี้ของคุณ!</h1>
-                            <div className={`hint ${clicked ? 'expanded' : ''}`}><p>[แตะที่ไพ่เพื่อดูคำทำนาย]</p></div>
+                            <div className={`hint ${clicked ? 'expanded' : ''}`}>
+                                <p>[แตะที่ไพ่เพื่อดูคำทำนาย]</p>
+                            </div>
                             <div className="container" onClick={handleClick}>
                                 <div className={`card ${clicked ? 'clicked' : ''}`}>
                                     <div className='front'>
