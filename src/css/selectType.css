@@ -178,7 +178,8 @@
 @media (max-width: 589px) {
 
     .select-container {
-        gap: 20px;
+        gap: 10px;
+        padding: 10px;
     }
 
     .select-card {
