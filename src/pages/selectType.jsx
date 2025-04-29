@@ -27,7 +27,7 @@ function Type() {
             <div className="select-card">
                 <button className="btn-select" onClick={() => {
                     buttonClickSound();
-                    navigate('/selectTypeofTarot')
+                    navigate('/fortuneSticks')
                 }}>
                     <img src="/temp/symsi.png" alt="fortune-sticks" />
                     <h3>เสี่ยงเซียมซี</h3>

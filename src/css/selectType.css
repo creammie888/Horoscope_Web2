@@ -177,7 +177,11 @@
 
 @media (max-width: 589px) {
 
-    .select-container {
+    .select-container{
+        gap: 10px;
+    }
+
+    .select-container-tarot{
         gap: 10px;
         padding: 10px;
     }
