@@ -60,11 +60,6 @@ body {
     
 }
 
-.curve-box.expanded {
-    height: 70%;
-    transition: transform 0.8s ease;
-    /* overflow-y: auto; */
-}
 
 .info {
     display: flex;
@@ -72,11 +67,12 @@ body {
     justify-content:space-between;
     align-items:center;
     text-align: center;
-    /* margin-top: 200px; */
+    margin-top: 300px;
+    transform: translateY(-250px);
     gap: 20px;
     /* z-index: 10; */
-    transform: translateY(-100px);
-    transition: transform 0.8s ease;
+    /* transform: translateY(-100px);
+    transition: transform 0.8s ease; */
 
 }
 
@@ -108,8 +104,9 @@ body {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: all 1.5s ease;
-    transform: rotateY(180deg);
+    transition: all 1.8s ease;
+    transform: rotateY(180deg) rotateZ(180deg);
+    perspective: 500px;
   
 }
 
@@ -196,6 +193,7 @@ body {
     font-family: 'IBM Plex Sans Thai';
     font-size: 0.7em;
     color: #2a2a2a;
+    cursor: pointer;
 }
 
 @keyframes move-in {
@@ -314,6 +312,21 @@ body {
     }
 
   }
+
+  .slide-in {
+    opacity: 0;
+    transform: translateY(300px);
+    animation: slideFadeIn 2s ease-out forwards;
+  }
+
+  
+  @keyframes slideFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 
 
 

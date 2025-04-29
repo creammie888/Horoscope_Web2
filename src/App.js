@@ -9,9 +9,39 @@ import Sticks from './pages/fortuneSticks';
 import LovePage from './pages/lovePage';
 import PickType from './pages/pickType';
 import WorkPage from './pages/workPage';
+import { useEffect } from 'react';
 
 
 function App() {
+
+  useEffect(() => {
+    const audio = new Audio('/music/Ferris Wheel.mp3');
+    audio.loop = true;
+    audio.volume = 0;
+
+    const fadeIn = setInterval(() => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(audio.volume + 0.01, 0.1);
+      } else {
+        clearInterval(fadeIn);
+      }
+    }, 200);
+
+    const startMusic = () => {
+      audio.play();
+      document.removeEventListener('click', startMusic);
+    };
+
+    document.addEventListener('click', startMusic);
+
+    return () => {
+      clearInterval(fadeIn);
+      document.removeEventListener('click', startMusic);
+      audio.pause();
+    };
+  }, []);
+
+
   return (
     <Router>
       <main>

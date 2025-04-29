@@ -17,6 +17,7 @@ const Pick = () => {
   const dragStart = useRef(null);
   const isDragging = useRef(false);
   const animationFrame = useRef(null);
+  const [animate, setAnimate] = useState(false);
 
   // ฟังก์ชันจับการเริ่มลาก
   const handleMouseDown = (e) => {
@@ -83,6 +84,9 @@ const handleTouchEnd = () => {
   };
 
   useEffect(() => {
+
+    setAnimate(true);
+
     animationFrame.current = requestAnimationFrame(animateInertia);
     return () => cancelAnimationFrame(animationFrame.current);
   }, []);
@@ -101,7 +105,11 @@ const handleTouchEnd = () => {
         <p>[เลื่อนเพื่อเลือกไพ่]</p>
       </div>
       {/* พื้นที่ลากไพ่ (อยู่นอกไพ่) */}
-      <div className="curved-card-container">
+      <div className={`curved-card-container ${animate ? 'card-slide-in' : ''}`}
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}>
         {Array.from({ length: totalCards }).map((_, index) => {
           const angle = ((index / (totalCards - 1)) - 0.5) * Math.PI;
           const rotatedAngle = angle + (rotation * Math.PI) / 180;

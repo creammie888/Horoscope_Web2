@@ -41,6 +41,7 @@
     justify-content: center;
     align-items: center;
     height: 600px; /* ปรับความสูงตามต้องการ */
+    z-index: 1;
   }
 
 
@@ -48,6 +49,8 @@
     position: absolute;
     cursor: pointer;
     pointer-events: auto;
+    /* touch-action: auto; */
+    touch-action: pan-x;    /* ✅ รองรับการลาก */
     
     
     }
@@ -64,7 +67,6 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-
   
   }
 
@@ -92,5 +94,18 @@
   }
   to {
     transform: translateY(-100%);
+  }
+}
+
+
+.card-slide-in {
+  transform: translateY(300px);
+  animation: slideIn 2s forwards;
+}
+
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
   }
 }

@@ -8,8 +8,12 @@ function Result() {
     const [clicked, setClicked] = useState(false);
     const [showPrediction, setShowPrediction] = useState(false);
     const [card, setCard] = useState(null);
-    const BASE_URL = "http://localhost:3001/api/tarot";
-    // const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
+    const [animate, setAnimate] = useState(false);
+    const [soundPlayed, setSoundPlayed] = useState(false);
+
+    // const BASE_URL = "http://localhost:3001/api/tarot";
+    const BASE_URL = process.env.REACT_APP_API_URL + "/api/tarot";
+
 
 
     useEffect(() => {
@@ -24,17 +28,35 @@ function Result() {
             console.error("Error fetching tarot card:", error);
           }
         };
+
+
       
         fetchCard();
       }, []);
+
+      useEffect(() => {
+        setAnimate(true);
+
+        if (card && !soundPlayed) {
+          const audio = new Audio('/sound/magic1.wav');
+          audio.volume = 0.5;
+          audio.play();
+          setSoundPlayed(true); // กันเสียงเล่นซ้ำ
+        }
+      }, [card, soundPlayed]);
       
 
       const handleClick = () => {
         if (!clicked) {
           setClicked(true);
           setShowPrediction(true);
+
+          const flip = new Audio('/sound/card1.wav');
+            flip.play();
         }
       };
+
+
 
 
     return (
@@ -46,7 +68,7 @@ function Result() {
                 </svg>
             </div>
             ) : (
-            <div className='background-box'>
+            <div className={`background-box ${animate ? 'slide-in' : ''}`}>
                     <div className={`curve-box ${clicked ? 'expanded' : ''}`}>
                         <div className={`info ${clicked ? 'expanded' : ''}`}>
                             <h1>ความสดใสในวันนี้ของคุณ!</h1>
