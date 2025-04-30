@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../css/fortuneSticks.css'
+import '../css/fortuneSticks.css';
 import { useNavigate } from 'react-router-dom';
 
 function Sticks() {
@@ -9,41 +9,29 @@ function Sticks() {
   const [result, setResult] = useState(null);
 
   const handleShake = async () => {
-    setShaking(true);         // เริ่มเขย่า
-    setShowStick4(false);     // ซ่อนไม้ก่อน
-  
-    
+    setShaking(true);
+    setShowStick4(false);
+
     setTimeout(async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/fortune');  // ← เปลี่ยนให้ชี้ API จริง
+        const res = await fetch('https://horoscope-backend-190g.onrender.com/api/fortune');
         const data = await res.json();
-    
-        setResult(data);       // เก็บข้อมูลที่ดึงมา
-        setShaking(false);     // หยุดเขย่า
-        setShowStick4(true);   // แสดงไม้ที่ 4
-    
+
+        setResult(data);
+        setShaking(false);
+        setShowStick4(true);
+
+        // ให้ไม้เด้งขึ้นมาก่อน แล้วค่อย navigate ไปหน้าผล
         setTimeout(() => {
-          navigate("/fortuneSticks_result", { state: { result: data } });  // ส่ง data ไปหน้าผล
+          navigate("/fortuneSticks_result", { state: { result: data } });
         }, 2000);
-    
+
       } catch (err) {
         console.error("Error fetching:", err);
         setShaking(false);
       }
     }, 2500);
-    
-
-    setTimeout(() => {
-      // หน่วงเวลา 2.5 วินาทีเพื่อจำลองการสุ่ม
-      setShaking(false);    // หยุดเขย่า
-      setShowStick4(true);  // เด้งไม้ที่ 4 ขึ้นมา
-
-      setTimeout(() => {
-        navigate("/fortuneSticks_result");
-      }, 2000);
-    }, 2500);
   };
-  
 
   const buttonClickSound = () => {
     const button = new Audio('/sound/click.wav');
