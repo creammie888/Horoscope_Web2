@@ -9,6 +9,9 @@ function StickResult(){
     
     const navigate = useNavigate();
     const [animate, setAnimate] = useState(false);
+    const location = useLocation();  
+    const result = location.state?.result;
+
 
 
           useEffect(() => {
