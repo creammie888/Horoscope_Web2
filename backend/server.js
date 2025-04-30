@@ -4,11 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-  origin: ["http://localhost:3000", "https://horoscope-frontend-g223.onrender.com"],
-  methods: ["GET", "POST"]
-}));
-
+app.use(cors());
 app.use(express.json());
 
 const db = mysql.createPool({
@@ -20,21 +16,21 @@ const db = mysql.createPool({
   port: process.env.DB_PORT,
   waitForConnections: true,
   queueLimit: 0,
-  // ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: false }
 
   // authPlugins: {
   //   mysql_native_password: true,
   // },
 });
 
-// เชื่อมต่อ MySQL
+// ✅ เชื่อมต่อ MySQL
 db.getConnection((err, connection) => {
   if (err) {
-    console.error("Database connection failed:", err.stack);
+    console.error("❌ Database connection failed:", err.stack);
     return;
   }
-  console.log("Connected to MySQL on Railway!");
-  connection.release();
+  console.log("✅ Connected to MySQL on Railway!");
+  connection.release(); // ปิด Connection หลังจากเชื่อมต่อสำเร็จ
 });
 
 
@@ -44,7 +40,37 @@ app.get("/tarot_cards", (req, res) => {
     if (err) {
       return res.status(500).json({ error: err });
     }
-    console.log(results);
+    console.log(results); // เพิ่มบรรทัดนี้เพื่อตรวจสอบข้อมูลใน Terminal
+    res.json(results);
+  });
+});
+
+app.get("/fortune_sticks", (req, res) => {
+  db.query("SELECT * FROM fortune_sticks", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    console.log(results); // เพิ่มบรรทัดนี้เพื่อตรวจสอบข้อมูลใน Terminal
+    res.json(results);
+  });
+});
+
+app.get("/tarot_love", (req, res) => {
+  db.query("SELECT * FROM tarot_love_cards", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    console.log(results); // เพิ่มบรรทัดนี้เพื่อตรวจสอบข้อมูลใน Terminal
+    res.json(results);
+  });
+});
+
+app.get("/tarot_work", (req, res) => {
+  db.query("SELECT * FROM tarot_work_cards", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    console.log(results); // เพิ่มบรรทัดนี้เพื่อตรวจสอบข้อมูลใน Terminal
     res.json(results);
   });
 });
@@ -54,18 +80,40 @@ app.get("/api/tarot", (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
+    res.json(results[0]);  // ส่งข้อมูลไพ่ Tarot กลับไปที่ Frontend
+  });
+});
+
+app.get('/api/love', (req, res) => {
+  db.query("SELECT * FROM tarot_love_cards ORDER BY RAND() LIMIT 1", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
     res.json(results[0]);
   });
 });
 
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
+app.get('/api/work', (req, res) => {
+  db.query("SELECT * FROM tarot_work_cards ORDER BY RAND() LIMIT 1", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results[0]);
+  });
+});
+
+app.get('/api/fortune', (req, res) => {
+  db.query("SELECT * FROM fortune_sticks ORDER BY RAND() LIMIT 1", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results[0]);
+  });
 });
 
 
+app.use(express.static('build'));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname,'build','index1.html'))
+})
 
 
-const PORT = process.env.SERVER_PORT;
+
+const PORT = process.env.SERVER_PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

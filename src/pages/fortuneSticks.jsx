@@ -13,20 +13,25 @@ function Sticks() {
     setShowStick4(false);     // ซ่อนไม้ก่อน
   
     
-    // setTimeout(async () => {        <-------ไว้ตอนเชื่อมแบค
-    //   try {
-    //     // เรียก API ไปสุ่มเลขจาก backend (เช่น /api/fortune)
-    //     const res = await fetch('/api/fortune');
-    //     const data = await res.json();
-  
-    //     setResult(data);      // เก็บข้อมูลที่สุ่มได้
-    //     setShaking(false);    // หยุดเขย่า
-    //     setShowStick4(true);  // แสดงไม้ 4 เด้งขึ้นมา
-    //   } catch (err) {
-    //     console.error("Error fetching:", err);
-    //     setShaking(false);
-    //   }
-    // }, 2500);
+    setTimeout(async () => {
+      try {
+        const res = await fetch('http://localhost:5001/api/fortune');  // ← เปลี่ยนให้ชี้ API จริง
+        const data = await res.json();
+    
+        setResult(data);       // เก็บข้อมูลที่ดึงมา
+        setShaking(false);     // หยุดเขย่า
+        setShowStick4(true);   // แสดงไม้ที่ 4
+    
+        setTimeout(() => {
+          navigate("/fortuneSticks_result", { state: { result: data } });  // ส่ง data ไปหน้าผล
+        }, 2000);
+    
+      } catch (err) {
+        console.error("Error fetching:", err);
+        setShaking(false);
+      }
+    }, 2500);
+    
 
     setTimeout(() => {
       // หน่วงเวลา 2.5 วินาทีเพื่อจำลองการสุ่ม
