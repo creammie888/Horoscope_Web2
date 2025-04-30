@@ -1,18 +1,59 @@
+.container2 h1{
+    margin-top: 50px;
+    color: white;
+    font-weight: 400;
+    font-size: 25px;
+}
 
 @keyframes stick-move {
     0%   { transform:  translateY(100%)rotateZ(0deg); }
-    100% { transform:  translateY(0%) rotateZ(-10deg); }
-  }
+    60%   { 
+        transform:  translateY(0%)rotateZ(-10deg);
+        width: 90px;
+    }
+    70%  { transform: translateY(0%) rotateZ(-10deg) scale(1); }
+    71%  { transform: translateY(-0.73%) rotateZ(-23.4deg) scale(0.985); }
+    72%  { transform: translateY(-1.46%) rotateZ(-36.8deg) scale(0.97); }
+    73%  { transform: translateY(-2.19%) rotateZ(-50.2deg) scale(0.955); }
+    74%  { transform: translateY(-2.92%) rotateZ(-63.6deg) scale(0.94); }
+    75%  { transform: translateY(-3.65%) rotateZ(-77deg) scale(0.925); }
+    76%  { transform: translateY(-4.38%) rotateZ(-90.4deg) scale(0.91); }
+    77%  { transform: translateY(-5.11%) rotateZ(-103.8deg) scale(0.895); }
+    78%  { transform: translateY(-5.84%) rotateZ(-117.2deg) scale(0.88); }
+    79%  { transform: translateY(-6.57%) rotateZ(-130.6deg) scale(0.865); }
+    80%  { transform: translateY(-7.3%) rotateZ(-144deg) scale(0.85); }
+    81%  { transform: translateY(-8.03%) rotateZ(-157.4deg) scale(0.835); }
+    82%  { transform: translateY(-8.76%) rotateZ(-170.8deg) scale(0.82); }
+    83%  { transform: translateY(-9.49%) rotateZ(-184.2deg) scale(0.805); }
+    84%  { transform: translateY(-10.22%) rotateZ(-197.6deg) scale(0.79); }
+    85%  { transform: translateY(-10.95%) rotateZ(-211deg) scale(0.775); }
+    86%  { transform: translateY(-11.68%) rotateZ(-224.4deg) scale(0.76); }
+    87%  { transform: translateY(-12.41%) rotateZ(-237.8deg) scale(0.745); }
+    88%  { transform: translateY(-13.14%) rotateZ(-251.2deg) scale(0.73); }
+    89%  { transform: translateY(-13.87%) rotateZ(-264.6deg) scale(0.715); }
+    90%  { transform: translateY(-14.6%) rotateZ(-278deg) scale(0.7); }
+    91%  { transform: translateY(-15.33%) rotateZ(-291.4deg) scale(0.685); }
+    92%  { transform: translateY(-16.06%) rotateZ(-304.8deg) scale(0.67); }
+    93%  { transform: translateY(-16.79%) rotateZ(-318.2deg) scale(0.655); }
+    94%  { transform: translateY(-17.52%) rotateZ(-331.6deg) scale(0.64); }
+    95%  { transform: translateY(-18.25%) rotateZ(-345deg) scale(0.625); }
+    96%  { transform: translateY(-18.98%) rotateZ(-358.4deg) scale(0.61); }
+    97%  { transform: translateY(-19.71%) rotateZ(-371.8deg) scale(0.595); }
+    98%  { transform: translateY(-20.44%) rotateZ(-385.2deg) scale(0.58); }
+    99%  { transform: translateY(-21.17%) rotateZ(-398.6deg) scale(0.565); }
+    100% { transform: translateY(-22%) rotateZ(-412deg) scale(0.55); }
+
+
+}
 
 .stick-result-move {
-    width: 70px;
-    animation: stick-move 2s ease-out forwards;
+    width: 90px;
+    animation: stick-move 5s ease-out forwards;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    
+    z-index: 10;
 }
 
 .stick-result-move img{
@@ -25,10 +66,77 @@
     color: #f5e6b7;
     font-weight: 500;
     font-size: 20px;
-    font-family:fantasy;
-    background-color:#28347b;
-    padding: 5px;
+    font-family: fantasy;
+    background-color: #28347b;
+    padding: 10px;
     border-radius: 20px;
     border: 3px solid #5f6cb7;
+    transform-origin: center;
+    transition: transform 0.2s ease;
 }
+
+
+  .background-box-stick {
+    height: 100vh;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 2;
+    animation: move-up 2s ease-in-out 4s forwards;
+}
+
+  @keyframes move-up {
+    0%   { transform: translateY(200%); opacity: 0; }
+    100% { transform: translateY(0%); opacity: 1; }
+}
+
+.info-stick {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    text-align: center;
+    height: 60vh;
+    gap: 20px;
+    transition: transform 0.8s ease;
+
+}
+
+.prediction-stick {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.prediction-stick h3{
+    margin-top: 50%;
+}
+
+.prediction-stick h1{
+    font-size: 70px;
+    color: black;
+    font-weight: 500;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top:0px;
+}
+
+.prediction-stick h2{
+    font-size: 15px;
+    background-color: #f5e6b7;
+    padding: 5px 25px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+
+
+
+
+
+  
+  
 
