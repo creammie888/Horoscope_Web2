@@ -9,6 +9,7 @@ import Sticks from './pages/fortuneSticks';
 import LovePage from './pages/lovePage';
 import PickType from './pages/pickType';
 import WorkPage from './pages/workPage';
+import StickResult from './pages/fortuneSticks_result';
 import { useEffect } from 'react';
 
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="/selectType" element={<Type />} />
           <Route path="/selectTypeofTarot" element={<TarotType />} />
           <Route path="/fortuneSticks" element={<Sticks />} />
+          <Route path="/fortuneSticks_result" element={<StickResult />} />
           <Route path="/tarotofLove" element={<LovePage />} />
           <Route path="/picktarot" element={<PickType />} />
           <Route path="/picktarotofWorkandStudy" element={<WorkPage />} />
