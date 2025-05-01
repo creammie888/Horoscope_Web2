@@ -60,8 +60,6 @@
     100% { transform: translateY(-25%) rotateZ(-412deg) scale(0.55); }
 
 
-
-
 }
 
 .stick-result-move {
@@ -124,7 +122,7 @@
     text-align: center;
     gap: 20px;
     transition: transform 0.8s ease;
-    margin: 50px;
+    margin: 40px;
 
 }
 
