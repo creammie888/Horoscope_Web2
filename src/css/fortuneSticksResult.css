@@ -93,14 +93,14 @@
 }
 
   .background-box-stick {
-    max-height: 100vh;
+    max-height: 60vh;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     background-color: white;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     border-radius: 270px 270px 0px 0px;
     transition: transform 0.8s ease;
     position: absolute;

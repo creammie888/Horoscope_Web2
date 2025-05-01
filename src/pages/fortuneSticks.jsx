@@ -40,6 +40,7 @@ function Sticks() {
 
   return (
     <div className="container2">
+      <p className="topic2">อย่าลืมอธิฐานนะ</p>
       <div className={`fortune-sticks-container ${shaking ? 'shake' : ''}`}>
         <div className="sticks-box">
           <img src="/temp/cylinder_shadow.png" alt="fortune" />
