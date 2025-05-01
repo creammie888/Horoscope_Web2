@@ -52,7 +52,7 @@ function StickResult() {
         <div className="background-box-stick">
             <div className="info-stick">
                 <div className="prediction-stick">
-                    <div className="Number">
+                    <div className="number">
                         <h3>หมายเลข</h3>
                         <h1>{result.number}</h1>
                     </div>
