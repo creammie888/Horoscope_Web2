@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 function App() {
 
   useEffect(() => {
+    document.title = "boonnampa";
     const audio = new Audio('/music/Ferris Wheel.mp3');
     audio.loop = true;
     audio.volume = 0;

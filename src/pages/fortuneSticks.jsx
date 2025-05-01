@@ -68,7 +68,10 @@ function Sticks() {
           <img src="/temp/cylinder.png" alt="fortune" />
         </div>
       </div>
-      <button className="btn-shake" onClick={handleShake}>เริ่มเขย่าเลย</button>
+      <button className="btn-shake" onClick={() => {
+                        buttonClickSound()
+                        handleShake()
+                      }}>เริ่มเขย่าเลย</button>
     </div>
   );
 }
